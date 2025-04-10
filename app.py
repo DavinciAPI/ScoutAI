@@ -5,6 +5,7 @@ from pathlib import Path
 from sklearn.cluster import KMeans
 from sklearn.linear_model import LinearRegression
 import numpy as np
+from PIL import Image
 
 # ------------------- Configuration -------------------
 SPORT_CONFIG = {
@@ -191,8 +192,10 @@ def show_player_profile(df, sport, player):
         st.info("No historical trend data available for this player.")
 
 # ------------------- Streamlit UI -------------------
-st.set_page_config(page_title="Multi-Sport Talent Scout Pro", layout="wide")
-st.title("🏆 Multi-Sport Talent Scout Pro")
+st.set_page_config(page_title="Multi-Sport Talent Scout AI", layout="wide")
+logo = Image.open("logo.png")
+st.image(logo, width=200)
+st.title("🏆 Multi-Sport Talent Scout AI by MR.ROBOT")
 
 # ---- Select Sport & Load Data ----
 sport = st.selectbox("Select a Sport", list(SPORT_CONFIG.keys()))
